@@ -92,7 +92,7 @@ return {
 			vim.keymap.set("n", "<A-p>", vim.diagnostic.goto_next, opts)
 			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
 
-			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+			vim.keymap.set("n", "<C-K>", vim.lsp.buf.signature_help, opts)
 			vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
 			vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
 			vim.keymap.set("n", "<leader>wl", function()
