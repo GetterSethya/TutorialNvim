@@ -68,6 +68,11 @@ return {
             -- Only one of these is needed, not both.
             "nvim-telescope/telescope.nvim", -- optional
         },
+
+        -- trigger when space gt press
+        keys = {
+            { "<leader>gt", "<cmd>Neogit<CR>" },
+        },
         config = function()
             local neogit = require("neogit")
 

@@ -85,8 +85,8 @@ return {
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 
-            		-- code actions
-            		vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+            -- code actions
+            vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
 			vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev, opts)
 			vim.keymap.set("n", "<A-p>", vim.diagnostic.goto_next, opts)
