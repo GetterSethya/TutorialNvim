@@ -1,7 +1,5 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	lazy = true,
-	cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 	build = ":TSUpdate",
 	config = function()
 		local configs = require("nvim-treesitter.configs")
