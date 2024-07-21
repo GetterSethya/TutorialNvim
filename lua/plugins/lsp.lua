@@ -25,11 +25,11 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local lspconfig = require("lspconfig")
-			local emmetCapabilities = vim.lsp.protocol.make_client_capabilities()
-			emmetCapabilities.textDocument.completion.completionItem.snippetSupport = true
+			local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+			lsp_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 			lspconfig.emmet_ls.setup({
-				capabilities = emmetCapabilities,
+				capabilities = lsp_capabilities,
 				filetypes = {
 					"css",
 					"html",
@@ -55,24 +55,28 @@ return {
 
 			-- lsp lua
 			lspconfig.lua_ls.setup({
+				capabilities = lsp_capabilities,
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = true
 				end,
 			})
 			-- lsp javascript
 			lspconfig.tsserver.setup({
+				capabilities = lsp_capabilities,
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = true
 				end,
 			})
 			-- lsp svelte
 			lspconfig.svelte.setup({
+				capabilities = lsp_capabilities,
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = true
 				end,
 			})
 			-- lsp go
 			lspconfig.gopls.setup({
+				capabilities = lsp_capabilities,
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = true
 				end,
