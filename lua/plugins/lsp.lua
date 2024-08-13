@@ -17,6 +17,7 @@ return {
 					"tsserver",
 					"gopls",
 					"svelte",
+					"stylua",
 				},
 			})
 		end,
