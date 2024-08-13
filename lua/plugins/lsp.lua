@@ -50,8 +50,12 @@ return {
 				},
 			})
 
-			lspconfig.html.setup({})
-			lspconfig.cssls.setup({})
+			lspconfig.html.setup({
+				capabilities = lsp_capabilities,
+            })
+			lspconfig.cssls.setup({
+				capabilities = lsp_capabilities,
+            })
 
 			-- lsp lua
 			lspconfig.lua_ls.setup({
