@@ -1,6 +1,8 @@
+-- disable startup message
+vim.opt.shortmess:append("sI")
+
 -- set leader key ke spasi
 vim.g.mapleader = " "
-
 
 -- set clipboard options
 vim.opt.clipboard = "unnamedplus"
@@ -11,7 +13,6 @@ vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
-
 -- set powershell sebagai shell default
 vim.o.shell = "powershell.exe"
 
@@ -21,13 +22,12 @@ vim.o.shellquote = ""
 vim.o.shellpipe = "| Out-File -Encoding UTF8 %s"
 vim.o.shellredir = "| Out-File -Encoding UTF8 %s"
 
-
 -- set relative line number
 vim.wo.relativenumber = true
 
 -- line break
 vim.opt.breakindent = true
-vim.opt.formatoptions:remove "t"
+vim.opt.formatoptions:remove("t")
 vim.opt.linebreak = true
 
 -- incremental search
@@ -40,7 +40,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 10
 
 vim.opt.signcolumn = "yes"
-vim.opt.isfname:append "@-@"
+vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 -- keymap pindah pindah window
@@ -78,3 +78,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "J", "mzJ`z")
+
+-- comment
+vim.keymap.set('n', '<leader>/', ':normal gcc<CR><DOWN>' )
+vim.keymap.set('v', '<leader>/', '<Esc>:normal gvgc<CR>')
