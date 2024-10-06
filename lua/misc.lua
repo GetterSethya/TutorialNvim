@@ -13,15 +13,6 @@ vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
--- set powershell sebagai shell default
-vim.o.shell = "powershell.exe"
-
-vim.o.shellxquote = ""
-vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
-vim.o.shellquote = ""
-vim.o.shellpipe = "| Out-File -Encoding UTF8 %s"
-vim.o.shellredir = "| Out-File -Encoding UTF8 %s"
-
 -- set relative line number
 vim.wo.relativenumber = true
 

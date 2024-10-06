@@ -16,30 +16,6 @@ return {
 			lsp_capabilities.textDocument.completion.completionItem.snippetSupport = true
 			lsp_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
-			lspconfig.biome.setup({
-				capabilities = lsp_capabilities,
-				cmd = { "biome", "lsp-proxy" },
-				filetypes = {
-					"javascript",
-					"javascriptreact",
-					"json",
-					"jsonc",
-					"typescript",
-					"typescript.tsx",
-					"typescriptreact",
-					"astro",
-					"svelte",
-					"vue",
-					"css",
-				},
-				root_dir = util.root_pattern("biome.json", "biome.jsonc"),
-				single_file_support = false,
-
-				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = true
-				end,
-			})
-
 			-- lsp c (pakai clangd)
 			lspconfig.clangd.setup({
 				capabilities = lsp_capabilities,
@@ -53,10 +29,10 @@ return {
 			})
 
 			-- lsp javascript
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				capabilities = lsp_capabilities,
 				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentFormattingProvider = true
 				end,
 			})
 
@@ -120,14 +96,6 @@ return {
 				capabilities = lsp_capabilities,
 			})
 
-			-- lsp lua
-			lspconfig.lua_ls.setup({
-				capabilities = lsp_capabilities,
-				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = true
-				end,
-			})
-
 			-- lsp zig
 			lspconfig.zls.setup({
 				capabilities = lsp_capabilities,
@@ -164,11 +132,10 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls",
 					"cssls",
 					"html",
 					"emmet_ls",
-					"tsserver",
+                    "ts_ls@4.3.1",
 					"gopls",
 					"svelte",
 				},
